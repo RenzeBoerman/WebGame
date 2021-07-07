@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Eindopdracht | Renze Boerman</title>
+    <script>
+
+    gameStarted = false;
+    function veranderKleur(vakjenummer) {
+        id = "vakje" + vakjenummer
+        element = document.getElementById(id);
+
+        if ( element.classList.contains("start") ) {
+            gameStarted = true;
+            document.getElementById("status").innerHTML = "Game is gestart";
+            var minutesLabel = document.getElementById("minutes");
+            var secondsLabel = document.getElementById("seconds");
+            var totalSeconds = 0;
+            setInterval(setTime, 1000);
+
+            function setTime() {
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds % 60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+            }
+
+        function pad(val) {
+            var valString = val + "";
+            if (valString.length < 2) {
+                return "0" + valString;
+            } else {
+                return valString;
+            }
+    }
+        }
+        
+        if (gameStarted == true) {
+            if ( element.classList.contains("entry") ) {
+                element.classList.add('no_entry');
+                element.getElementById(id).classList.remove('entry');
+            } else if ( element.classList.contains("end")) {
+                alert("Je hebt gewonnen!");
+                document.getElementById("status").innerHTML = "Je hebt gewonnen!";
+                clearInterval(setTime);
+                alert("test");
+            } else if (element.classList.contains("no_entry")) {
+                document.getElementById("status").innerHTML = "Game is gestart";
+                alert("Je bent af begin opnieuw!");
+                location.reload();
+            } else if (element.classList.contains("bonus")) {
+                element.classList.add('no_entry');
+                element.getElementById(id).classList.remove('bonus');
+            }
+        }
+    }
+
+
+    
+   
+
+    </script>
+    <style>
+        #spel {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            margin: auto;
+        }
+
+        .vakje {
+            width: 16.25%;
+            height: 16.25%;
+            float: left;
+            background-color: red;
+            border: 1px solid black;
+        }
+
+        .start {
+            background-color: blue;
+        }
+
+        .entry {
+            background-color: green;
+        }
+
+        .bonus {
+            background-color: purple;
+        }
+
+        .end {
+            background-color: black;
+        }
+
+        .no_entry {
+            background-color: red;
+        }
+
+        .content {
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            float: center;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+
+    <label id="minutes">00</label>:<label id="seconds">00</label>
+    <div id="status">Ga over het blauwe blokje om het spel te beginnen</div>
+
+    <div id="spel">
+        <div class="vakje start" id="vakje0" onmouseout="veranderKleur(0), setTimer()"></div>
+        <div class="vakje entry" id="vakje1" onmouseout="veranderKleur(1)"></div>
+        <div class="vakje no_entry" id="vakje2" onmouseout="veranderKleur(2)"></div>
+        <div class="vakje entry" id="vakje3" onmouseout="veranderKleur(3)"></div>
+        <div class="vakje entry" id="vakje4" onmouseout="veranderKleur(4)"></div>
+        <div class="vakje entry" id="vakje5" onmouseout="veranderKleur(5)"></div>
+        <div class="vakje no_entry" id="vakje6" onmouseout="veranderKleur(6)"></div>
+        <div class="vakje entry" id="vakje7" onmouseout="veranderKleur(7)"></div>
+        <div class="vakje no_entry" id="vakje8" onmouseout="veranderKleur(8)"></div>
+        <div class="vakje entry" id="vakje9" onmouseout="veranderKleur(9)"></div>
+        <div class="vakje no_entry" id="vakje10" onmouseout="veranderKleur(10)"></div>
+        <div class="vakje entry" id="vakje11" onmouseout="veranderKleur(11)"></div>
+        <div class="vakje no_entry" id="vakje12" onmouseout="veranderKleur(12)"></div>
+        <div class="vakje entry" id="vakje13" onmouseout="veranderKleur(13)"></div>
+        <div class="vakje bonus" id="vakje14" onmouseout="veranderKleur(14)"></div>
+        <div class="vakje entry" id="vakje15" onmouseout="veranderKleur(15)"></div>
+        <div class="vakje no_entry" id="vakje16" onmouseout="veranderKleur(16)"></div>
+        <div class="vakje entry" id="vakje17" onmouseout="veranderKleur(17)"></div>
+        <div class="vakje no_entry" id="vakje18" onmouseout="veranderKleur(18)"></div>
+        <div class="vakje no_entry" id="vakje19" onmouseout="veranderKleur(19)"></div>
+        <div class="vakje no_entry" id="vakje20" onmouseout="veranderKleur(20)"></div>
+        <div class="vakje no_entry" id="vakje21" onmouseout="veranderKleur(21)"></div>
+        <div class="vakje no_entry" id="vakje22" onmouseout="veranderKleur(22)"></div>
+        <div class="vakje entry" id="vakje23" onmouseout="veranderKleur(23)"></div>
+        <div class="vakje no_entry" id="vakje24" onmouseout="veranderKleur(24)"></div>
+        <div class="vakje no_entry" id="vakje25" onmouseout="veranderKleur(25)"></div>
+        <div class="vakje no_entry" id="vakje26" onmouseout="veranderKleur(26)"></div>
+        <div class="vakje no_entry" id="vakje27" onmouseout="veranderKleur(27)"></div>
+        <div class="vakje no_entry" id="vakje28" onmouseout="veranderKleur(28)"></div>
+        <div class="vakje entry" id="vakje29" onmouseout="veranderKleur(29)"></div>
+        <div class="vakje no_entry" id="vakje30" onmouseout="veranderKleur(30)"></div>
+        <div class="vakje no_entry" id="vakje31" onmouseout="veranderKleur(31)"></div>
+        <div class="vakje no_entry" id="vakje32" onmouseout="veranderKleur(32)"></div>
+        <div class="vakje no_entry" id="vakje33" onmouseout="veranderKleur(33)"></div>
+        <div class="vakje no_entry" id="vakje34" onmouseout="veranderKleur(34)"></div>
+        <div class="vakje end" id="vakje35" onmouseout="veranderKleur(35)"></div>
+    </div>
+</div>
+</body>
+</html>
